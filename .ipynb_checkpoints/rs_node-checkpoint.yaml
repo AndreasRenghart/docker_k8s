@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: nodeapp-rs
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodeapp
+  template: 
+    metadata:
+      labels:
+        app: nodeapp
+    spec:
+      containers:
+      - image: ardconsulting/test:nodeapp
+        name: nodeapp-container
+        ports:
+        - containerPort: 8091
+          protocol: TCP

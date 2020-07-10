@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+    name: nodeapp-pod
+spec:
+    containers:
+    - image: ardconsulting/test:nodeapp
+      name: nodeapp-container
+      ports:
+      - containerPort: 8091
+        protocol: TCP

@@ -1,0 +1,17 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: batch-cronjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: batch-pod
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: batch-container
+            image: ardconsulting/test:py-batch

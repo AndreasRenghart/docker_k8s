@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: batch-job-access-service
+spec:
+  template:
+    metadata:
+      labels:
+        app: batch-pod
+    spec:
+      restartPolicy: OnFailure
+      containers:
+      - name: batch-container
+        image: ardconsulting/test:py-batch-access-service
